@@ -1,0 +1,108 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Fonts/OpenSans-Regular.ttf" type="FontFile" id=1]
+[ext_resource path="res://Score.tscn" type="PackedScene" id=2]
+[ext_resource path="res://MaxScore.tscn" type="PackedScene" id=3]
+[ext_resource path="res://GameOver.gd" type="Script" id=4]
+[ext_resource path="res://Fonts/OpenSans-Bold.ttf" type="FontFile" id=5]
+
+[sub_resource type="FontFile" id=1]
+size = 64
+font_data = ExtResource( 1 )
+
+[sub_resource type="FontFile" id=2]
+font_data = ExtResource( 5 )
+
+[sub_resource type="FontFile" id=3]
+font_data = ExtResource( 5 )
+
+[node name="GameOver" type="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
+offset_right = 1024.0
+offset_bottom = 266.0
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/CenterContainer"]
+offset_left = 342.0
+offset_top = 89.0
+offset_right = 682.0
+offset_bottom = 177.0
+theme_override_fonts/font = SubResource( 1 )
+theme_override_colors/font_color = Color( 0.231373, 0.168627, 0.168627, 1 )
+text = "Game Over"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+offset_top = 270.0
+offset_right = 1024.0
+offset_bottom = 330.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="MaxScore" parent="VBoxContainer/HBoxContainer" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 410.0
+offset_right = 510.0
+offset_bottom = 60.0
+custom_minimum_size = Vector2( 100, 60 )
+
+[node name="Score" parent="VBoxContainer/HBoxContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 514.0
+offset_right = 614.0
+offset_bottom = 60.0
+
+[node name="CenterContainer2" type="CenterContainer" parent="VBoxContainer"]
+offset_top = 334.0
+offset_right = 1024.0
+offset_bottom = 600.0
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/CenterContainer2"]
+offset_left = 462.0
+offset_top = 101.0
+offset_right = 562.0
+offset_bottom = 165.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Start" type="Button" parent="VBoxContainer/CenterContainer2/VBoxContainer"]
+offset_right = 100.0
+offset_bottom = 30.0
+custom_minimum_size = Vector2( 100, 30 )
+theme_override_fonts/font = SubResource( 2 )
+theme_override_colors/font_disabled_color = Color( 0, 0, 0, 1 )
+theme_override_colors/font_color = Color( 0.231373, 0.168627, 0.168627, 1 )
+text = "Try Again"
+flat = true
+
+[node name="Exit" type="Button" parent="VBoxContainer/CenterContainer2/VBoxContainer"]
+offset_top = 34.0
+offset_right = 100.0
+offset_bottom = 64.0
+custom_minimum_size = Vector2( 100, 30 )
+theme_override_fonts/font = SubResource( 3 )
+theme_override_colors/font_color = Color( 0.231373, 0.168627, 0.168627, 1 )
+text = "Exit Game"
+flat = true
+[connection signal="button_up" from="VBoxContainer/CenterContainer2/VBoxContainer/Start" to="." method="_on_Start_button_up"]
+[connection signal="button_up" from="VBoxContainer/CenterContainer2/VBoxContainer/Exit" to="." method="_on_Exit_button_up"]

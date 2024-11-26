@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bk2u3rl2rnq6x"]
+
+[ext_resource type="FontFile" uid="uid://ddc6uxteyhly0" path="res://Fonts/OpenSans-Bold.ttf" id="1"]
+
+[sub_resource type="FontFile" id="1"]
+fallbacks = Array[Font]([ExtResource("1")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[node name="Exit" type="Button"]
+custom_minimum_size = Vector2(100, 30)
+offset_top = 44.0
+offset_right = 100.0
+offset_bottom = 84.0
+theme_override_colors/font_color = Color(0.203922, 0.152941, 0.152941, 1)
+theme_override_fonts/font = SubResource("1")
+text = "Exit"
+flat = true
